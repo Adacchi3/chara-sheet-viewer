@@ -1,17 +1,7 @@
 const functions = require('firebase-functions');
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 const express = require('express');
 const app = express();
 const admin = require('firebase-admin');
-
-console.log("hogehogehogehogehoge");
 
 admin.initializeApp(functions.config().firebase);
 
@@ -30,7 +20,7 @@ const tw_description = "クトゥルフ神話TRPGのキャラクターシート�
 const tw_site = "";
 const tw_creator = "";
 
-const genHtml = image_url => `
+const genHtml = (image_url) => `
   <!DOCTYPE html>
   <html>
     <head>
@@ -56,6 +46,8 @@ const genHtml = image_url => `
       <meta name="twitter:creator" content="${tw_creator}">
     </head>
     <body>
+      <script>
+      </script>
     </body>
   </html>
 `;
