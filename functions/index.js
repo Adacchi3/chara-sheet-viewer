@@ -41,12 +41,13 @@ const genHtml = (image_url) => `
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="${title}">
       <meta name="twitter:description" content="${tw_description}">
-      <meta name="twitter:image" content="${url}}">
+      <meta name="twitter:image" content="${url}">
       <meta name="twitter:site" content="${tw_site}">
       <meta name="twitter:creator" content="${tw_creator}">
     </head>
     <body>
       <script>
+        location.href = "/";
       </script>
     </body>
   </html>
