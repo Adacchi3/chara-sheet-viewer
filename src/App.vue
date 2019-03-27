@@ -12,6 +12,11 @@
 
 				<hr>
 
+				<!-- 
+					TODO: SVGをコンポーネント化
+					親コンポーネントから子コンポーネントへ各種パラメータを渡す仕組みが必要
+					完成したSVGを画像として出力する動作を検討する必要があるかも？
+				-->
 				<div id="svg">
 
 					<svg ref="svgCard" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 480" width="640" height="480">
@@ -306,6 +311,13 @@
 					</a>
 				</div>
 
+				<!-- 
+					TODO: コンポーネント化
+					タブごとにコンポーネントかできるはず。
+					子から親へのパラメータの受け渡しができるとgood.
+					ユーザビリティに関しても検討が必要（ジョブを探すのが面倒）
+					TODO: 技能に関して、初期値を反映できるようにしたい。
+				-->
 				<section>
 					<b-tabs type="is-toggle" expanded>
 						<b-tab-item label="Profile">
