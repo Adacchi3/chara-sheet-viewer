@@ -5,7 +5,7 @@ Call of Cthulhu(CoC) is a horror fiction role-playing game based on H.P.Lovecraf
 
 The Open Graph protocol(OGP) enables any web page to become a rich object in a social graph[[ref]](http://ogp.me/). This basis is from knowlege representation, for instance, RDFa in [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web). Recently, we have seen Twitter and Facebook posts using OGP images to promote web pages.
 
-In this project, I am developing the CoC Character Card Generator on firebase. This project has been developing by Vue.js and Firebase features(hosting, function, storage and database).
+In this project, I am developing the CoC Character Card Generator on firebase. This project has been developing by Vue.js and Firebase features(hosting, function, storage and database). SVG file was created by [Vectr](https://vectr.com/).
 
 ### Project setup
 ```
