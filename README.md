@@ -12,6 +12,19 @@ In this project, I am developing the CoC Character Card Generator on firebase. T
 npm install
 ```
 
+Also, you have to make `firebaseconfig.js` in the root directory. `firebaseconfig.js` content is below.
+
+```
+export const config = {
+  apiKey: "your_apiKey",
+  authDomain: "your_authDomain",
+  databaseURL: "your_databseURL",
+  projectId: "your_projectId",
+  storageBucket: "your_storageBucket",
+  messagingSenderId: "your_messagingSenderId"
+};
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
