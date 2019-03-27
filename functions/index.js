@@ -7,7 +7,7 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 
-const url = "";
+const url = "https://chara-sheet-viewer.firebaseapp.com/";
 const site_name = "chara-sheet-viewer";
 const title = "chara-sheet-viewer";
 const meta_description = "クトゥルフ神話TRPGのキャラクターシートを共有するサイトです。";
@@ -17,7 +17,7 @@ const og_image_width = 640;
 const og_image_height = 480;
 const fb_appid = "";
 const tw_description = "クトゥルフ神話TRPGのキャラクターシートを共有します！";
-const tw_site = "";
+const tw_site = "https://chara-sheet-viewer.firebaseapp.com/";
 const tw_creator = "";
 
 const genHtml = (image_url) => `
@@ -41,13 +41,13 @@ const genHtml = (image_url) => `
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="${title}">
       <meta name="twitter:description" content="${tw_description}">
-      <meta name="twitter:image" content="${url}">
+      <meta name="twitter:image" content="${image_url}">
       <meta name="twitter:site" content="${tw_site}">
       <meta name="twitter:creator" content="${tw_creator}">
     </head>
     <body>
       <script>
-        location.href = "/";
+        location.href = "${image_url}";
       </script>
     </body>
   </html>

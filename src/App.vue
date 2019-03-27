@@ -7,7 +7,7 @@
 
 				<h3 class="is-size-4">クトゥルフ神話TRPG キャラ名刺 ジェネレーター</h3>
 				<div class="content">
-					<p>クトゥルフ神話TRPGのキャラクターの名刺を作成できるサービスです。作成した画像はダウンロードしてご利用いただけます。</p>
+					<p>クトゥルフ神話TRPGのキャラクターの名刺を作成できるサービスです。</p>
 				</div>
 
 				<hr>
@@ -318,7 +318,7 @@
 							</b-field>
 
 							<section>
-								<b-field label="職業">
+								<b-field label="Job">
 									<b-select v-model="job" expanded>
 										<option v-for="option in jobs" :value="option.job" :key="option.job">
 											{{ option.job }}
@@ -503,7 +503,6 @@ export default {
 			edu: 6,
 			int: 8,
 			pow: 3,
-      uuid: '1', // 適当に採番する
 			jobs: jobs,
 			skills: skills,
 			skill: [
@@ -575,24 +574,34 @@ export default {
     async create() {
 			this.isloading = true;
       svg2imageData(this.$refs.svgCard, async (data) => {
-        const sRef = firebase.storage().ref()
-        const fileRef = sRef.child(`${this.uuid}.png`)
+				const sRef = firebase.storage().ref()
+				const uuid = this.generateID()
+        const fileRef = sRef.child(`${uuid}.png`)
 
         await fileRef.putString(data, 'data_url');
         const url = await fileRef.getDownloadURL()
 
-        const card = db.collection('cards').doc(this.uuid)
+        const card = db.collection('cards').doc(uuid)
         await card.set({
           url,
           message: this.message
 				});
 				this.isloading = false;
-				this.share(this.message, this.uuid);
+				this.share(this.message, url, uuid);
       })
 		},
-		share(text, id) {
-			const tweetURL = "https://twitter.com/intent/tweet?text="+text+"%0D%0A&hashtags=CoCキャラ名刺&url="+location.href+"s/"+id;
+		share(text, image_url, id) {
+			const tweetURL = "https://twitter.com/intent/tweet?text="+text+"%0D"+image_url+"%0D&hashtags=CoCキャラ名刺&url="+location.href+"s/"+id;
 			open(tweetURL, "SNS_window", "width=600, height=500,menubar=no, scrollbars=no")
+		},
+		generateID(){
+			const str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+			const len = 8;
+			let res = "";
+			for(let i=0;i<len;i++){
+				res += str.charAt(Math.floor(Math.random()*str.length));
+			}
+			return res;
 		}
   }
 }
